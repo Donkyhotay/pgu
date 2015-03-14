@@ -2,15 +2,17 @@ PGU - PyGame Utilities
 ======================
 
 A collection of handy utilities and libraries created by Phil Hassey, released
-under the LGPL v2.1 (see LICENSE.txt for more details). PGU is currently 
-maintained by Peter Rogers.
+under the LGPL v2.1 (see LICENSE.txt for more details). This version of PGU is 
+currently maintained by Donkyhotay.
 
 The new PGU website:
 
-    http://code.google.com/p/pgu/
-    peter.rogers@gmail.com
+    https://github.com/Donkyhotay/pgu
 
 Old website location:
+
+    http://code.google.com/p/pgu/
+    peter.rogers@gmail.com
 
     http://www.imitationpickles.org/pgu/
     philhassey@yahoo.com

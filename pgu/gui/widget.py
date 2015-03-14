@@ -127,6 +127,14 @@ class Widget(object):
         """Blur this Widget."""
         if self.container: self.container.blur(self)
 
+    def hasfocus(self):  #by Donkyhotay
+        """determine if specific widget has focus"""
+        if self.container:
+            if self.container.myfocus == self:
+                return True
+            else:
+                return False
+
     def open(self):
         """Open this widget as a modal dialog."""
         #if getattr(self,'container',None) != None: self.container.open(self)
@@ -297,12 +305,7 @@ class Widget(object):
             try:
                 code = func.__code__
             except:
-                try:
-                    code = func.func_code
-                except:
-                    # Nothing to inspect, so just call the object and hope for the best
-                    func(*cb.params)
-                    continue
+                code = func.func_code
 
             nargs = code.co_argcount
             names = list(code.co_varnames)[:nargs]

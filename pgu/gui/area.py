@@ -89,11 +89,7 @@ class SlideBox(container.Container):
         else:
             s.blit(self.bkgr,(0,0))
             sub = pygame.Rect(self.offset[0],self.offset[1],min(s.get_width(),self.max_rect.w-self.offset[0]),min(s.get_height(),self.max_rect.h-self.offset[1]))
-#             print sub
-#             print self.surface.get_width(),self.surface.get_height()
-#             print s.get_width(),s.get_height()
-#             print self.offset
-#             print self.style.width,self.style.height
+
             s.blit(self.surface.subsurface(sub),(0,0))
             rets.append(s_rect)
         self._offset = self.offset[:]
@@ -111,10 +107,7 @@ class SlideBox(container.Container):
     def resize(self, width=None, height=None):
         container.Container.resize(self)
         self.max_rect = pygame.Rect(self.widget.rect)
-        #self.max_rect.w = max(self.max_rect.w,self.style.width)
-        #self.max_rect.h = max(self.max_rect.h,self.style.height)
         return self.style.width,self.style.height
-        #self.rect = pygame.Rect(self.rect[0], self.rect[1], self.style.width, self.style.height)
     
     def event(self, e):
         if e.type in [MOUSEBUTTONDOWN, MOUSEBUTTONUP, MOUSEMOTION]:
@@ -194,38 +187,6 @@ class ScrollArea(table.Table):
         
         box.rect.w,box.rect.h = box.resize()
         
-        #print widget.rect
-        #print box.rect
-        #r = table.Table.resize(self,width,height)
-        #print r
-        #return r
-        
-        #print box.offset
-        
-#         #this old code automatically adds in a scrollbar if needed
-#         #but it doesn't always work
-#         self.vscrollbar = None
-#         if widget.rect.h > box.rect.h:
-#             self.vscrollbar = slider.VScrollBar(box.offset[1],0, 65535, 0,step=self.step) 
-#             self.td(self.vscrollbar)
-#             self.vscrollbar.connect(CHANGE, self._vscrollbar_changed, None)
-#             
-#             vs = self.vscrollbar
-#             vs.rect.w,vs.rect.h = vs.resize()
-#             box.style.width = self.style.width - vs.rect.w
-#             
-#             
-#         self.hscrollbar = None
-#         if widget.rect.w > box.rect.w:
-#             self.hscrollbar = slider.HScrollBar(box.offset[0], 0,65535, 0,step=self.step)
-#             self.hscrollbar.connect(CHANGE, self._hscrollbar_changed, None)
-#             self.tr()
-#             self.td(self.hscrollbar)
-#             
-#             hs = self.hscrollbar
-#             hs.rect.w,hs.rect.h = hs.resize()
-#             box.style.height = self.style.height - hs.rect.h
-
         xt,xr,xb,xl  = pguglobals.app.theme.getspacing(box)
         
 
